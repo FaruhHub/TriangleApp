@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "FindHypotenuse";
+}
+
+@model TriangleApp.Models.Triangle
+
+<h2>FindHypotenuse</h2>
+<div>
+    @* BeginForm - создает элемент form с атрибутами в соответсвии с параметрами*@
+    @using (Html.BeginForm("FindHypotenuse", "Home"))
+    {
+        @*@Html.TextBox("x") - создает элемент input type="text" с атрибутами
+            в соответсвии с настройками*@
+        <p>
+            @Html.LabelFor(x => x.A)
+            @Html.EditorFor(x => x.A)
+            @Html.ValidationMessageFor(x => x.A)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.B)
+            @Html.EditorFor(x => x.B)
+            @Html.ValidationMessageFor(x => x.B)
+        </p>
+        
+        if (Model != null)
+        {
+            string str = ViewBag.Hypotenuse.ToString();
+            <label>C:</label> @Html.TextBox("rr",str) <br />
+        }
+        <p>
+            <input type="submit" name="operation" value="Get Result"/>
+        </p>
+    }
+</div>

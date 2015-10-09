@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "CalculateArea";
+}
+@model TriangleApp.Models.Triangle
+
+<h2>CalculateArea</h2>
+<div>
+    @* BeginForm - создает элемент form с атрибутами в соответсвии с параметрами*@
+    @using (Html.BeginForm("CalculateArea", "Home"))
+    {
+        @*@Html.TextBox("x") - создает элемент input type="text" с атрибутами
+            в соответсвии с настройками*@
+        <p>
+            @Html.LabelFor(x => x.A)
+            @Html.EditorFor(x => x.A)
+            @Html.ValidationMessageFor(x => x.A)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.B)
+            @Html.EditorFor(x => x.B)
+            @Html.ValidationMessageFor(x => x.B)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.C)
+            @Html.EditorFor(x => x.C)
+            @Html.ValidationMessageFor(x => x.C)
+        </p>
+        if (ViewBag.Msg != null)
+        {
+            <p>@ViewBag.Msg</p>
+        }
+        
+        if (ViewBag.Area != null)
+        {
+            string str = ViewBag.Area.ToString();
+            <label>Area:</label> @Html.TextBox("rr", str) <br />
+        }
+        <p>
+            <input type="submit" name="operation" value="Get Result" />
+        </p>
+    }
+</div>

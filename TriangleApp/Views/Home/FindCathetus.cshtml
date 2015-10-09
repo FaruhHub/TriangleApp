@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "FindCathetus";
+}
+
+@model TriangleApp.Models.Triangle
+
+<h2>FindCathetus</h2>
+<div>
+    @* BeginForm - создает элемент form с атрибутами в соответсвии с параметрами*@
+    @using (Html.BeginForm("FindCathetus", "Home"))
+    {
+        @*@Html.TextBox("x") - создает элемент input type="text" с атрибутами
+            в соответсвии с настройками*@
+        <p>
+            @Html.LabelFor(x => x.C)
+            @Html.EditorFor(x => x.C)
+            @Html.ValidationMessageFor(x => x.C)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.B)
+            @Html.EditorFor(x => x.B)
+            @Html.ValidationMessageFor(x => x.B)
+        </p>
+
+        if (ViewBag.Cathetus != null)
+        {
+            string str = ViewBag.Cathetus.ToString();
+            <label>A:</label> @Html.TextArea("rr",str) <br />
+        }
+        <p>
+            <input type="submit" name="operation" value="Get Result" />
+        </p>
+
+    }
+</div>
